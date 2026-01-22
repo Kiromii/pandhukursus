@@ -5,9 +5,9 @@ import coursesData, { formatPrice } from '../data/coursesData';
 // Jumlah kursus yang ditampilkan per halaman
 const KURSUS_PER_HALAMAN = 6;
 
-// Komponen kartu kursus dengan fitur tombol suka (like)
+// Komponen kartu kursus dengan fitur tombol like
 const CourseCard = ({ c, onViewDetail, isLiked, onToggleLike, isVisible, delay }) => {
-  // Menggunakan gambar dari thumbnail_url atau fallback ke gambar default
+  // Menggunakan gambar dari thumbnail url atau fallback ke gambar default
   const imageUrl = c.thumbnail_url || `/img/kursus/${c.category.toLowerCase().replace(/\s+/g, '-')}.jpg`;
 
   return (
@@ -20,7 +20,6 @@ const CourseCard = ({ c, onViewDetail, isLiked, onToggleLike, isVisible, delay }
           alt={c.title}
           className="course-thumbnail"
           onError={(e) => {
-            // Jika gambar tidak ditemukan, tampilkan placeholder
             e.target.style.display = 'none';
             e.target.nextSibling.style.display = 'flex';
           }}
@@ -40,9 +39,6 @@ const CourseCard = ({ c, onViewDetail, isLiked, onToggleLike, isVisible, delay }
             onToggleLike(c.id);
           }}
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill={isLiked ? '#ef4444' : 'none'} stroke={isLiked ? '#ef4444' : 'currentColor'} strokeWidth="2">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
         </button>
       </div>
       <div className="course-body">
@@ -110,9 +106,9 @@ const CourseSection = ({ showHeader = true }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [levelFilter, setLevelFilter] = useState('Semua');
   const [searchQuery, setSearchQuery] = useState('');
-  const [halamanAktif, setHalamanAktif] = useState(1); // State untuk halaman aktif pagination
+  const [halamanAktif, setHalamanAktif] = useState(1);
   const [likedCourses, setLikedCourses] = useState(() => {
-    // Mengambil daftar kursus yang disukai dari penyimpanan lokal (localStorage)
+    // ambil daftar kursus yang disukai dari penyimpanan lokal
     const saved = localStorage.getItem('likedCourses');
     return saved ? JSON.parse(saved) : [];
   });

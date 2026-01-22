@@ -17,7 +17,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Memperbarui link aktif berdasarkan posisi scroll
       const sections = ['beranda', 'kategori', 'keunggulan', 'kursus', 'bantuan', 'kontak'];
       for (const id of sections) {
         const el = document.getElementById(id);
