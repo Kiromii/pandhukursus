@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#FDF2F8"/>
+  <g transform="translate(8, 10)">
+    <!-- Parent figure -->
+    <circle cx="18" cy="12" r="8" fill="#EC4899"/>
+    <path d="M6 44c0-10 5-18 12-18s12 8 12 18" fill="#EC4899"/>
+    <!-- Child figure -->
+    <circle cx="34" cy="22" r="6" fill="#F9A8D4"/>
+    <path d="M26 44c0-8 3.5-14 8-14s8 6 8 14" fill="#F9A8D4"/>
+    <!-- Heart between them -->
+    <path d="M24 30c0-2 1.5-3.5 3.5-3.5 1.2 0 2.2.6 2.8 1.5.6-.9 1.6-1.5 2.8-1.5 2 0 3.5 1.5 3.5 3.5 0 4-6.3 7-6.3 7S24 34 24 30z" fill="#FCA5C0"/>
+    <!-- Holding hands hint -->
+    <rect x="20" y="36" width="8" height="3" rx="1.5" fill="#FBCFE8"/>
+  </g>
+</svg>
