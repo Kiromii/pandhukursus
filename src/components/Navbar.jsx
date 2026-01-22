@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../App';
 
 // Komponen Navbar untuk Landing Page saja
@@ -7,8 +7,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('beranda');
-
-  const navigate = useNavigate();
 
   // Mengambil status login dari context
   const authContext = useContext(AuthContext);

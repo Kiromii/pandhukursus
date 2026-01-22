@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import coursesData, { formatPrice, getCourseById } from '../data/coursesData';
+import { formatPrice, getCourseById } from '../data/coursesData';
 
 // Extended course details data
 const courseDetails = {

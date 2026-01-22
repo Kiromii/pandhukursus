@@ -345,25 +345,4 @@ const HeroSection = () => {
   );
 };
 
-// Komponen kartu tanya jawab (QA Card) untuk bagian FAQ
-const QACard = ({ id, question, answer, badge, style }) => {
-  // State untuk mengatur buka/tutup kartu
-  const [open, setOpen] = useState(true);
-  const aId = id || 'qa-1';
-  return (
-    <div className={`instructor-cta qa-card ${open ? 'open' : ''}`} style={style}>
-      <div className="qa-content">
-        <div className="qa-question">{question}</div>
-        <div id={aId} className={`qa-answer ${open ? 'open' : ''}`}>
-          {answer}
-        </div>
-      </div>
-      <button className="qa-toggle" aria-expanded={open} aria-controls={aId} onClick={() => setOpen((v) => !v)} title={open ? 'Tutup' : 'Buka'}>
-        <span className="chev">▾</span>
-      </button>
-      {badge && <div className="qa-badge">{badge}</div>}
-    </div>
-  );
-};
-
 export default HeroSection;
