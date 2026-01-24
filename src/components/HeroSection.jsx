@@ -231,7 +231,7 @@ const HeroSection = () => {
 
           {/* Animasi Buku 3D dengan Efek Flip */}
           <div
-            className="book-3d-container"
+            className={`book-3d-container ${currentPage >= 0 ? 'book-opened' : ''}`}
             ref={bookRef}
             onMouseDown={handleDragStart}
             onMouseMove={handleDragMove}
@@ -259,15 +259,18 @@ const HeroSection = () => {
               {bookPages.map((page, index) => {
                 const isFlipped = currentPage >= 0 && index < currentPage;
                 const isActive = currentPage >= 0 && index === currentPage;
-                const zIndex = totalPages - index;
+                // z-index: halaman yang sudah di-flip harus di atas cover (z-index tinggi)
+                // halaman yang belum di-flip harus terurut dari depan ke belakang
+                const zIndex = isFlipped ? 200 + index : totalPages - index + 50;
 
                 return (
                   <div
                     key={page.id}
                     className={`book-3d-page ${isFlipped ? 'flipped' : ''} ${isActive ? 'active' : ''} ${currentPage < 0 ? 'cover-closed' : ''}`}
                     style={{
-                      zIndex: isFlipped ? index + 10 : zIndex,
+                      zIndex: zIndex,
                       '--page-index': index,
+                      '--flip-order': isFlipped ? index + 1 : 0,
                       transform: isDragging && isActive ? `rotateY(${Math.max(-180, Math.min(0, dragOffset * 0.5))}deg)` : undefined,
                     }}
                   >

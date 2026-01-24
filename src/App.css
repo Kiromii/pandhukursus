@@ -7315,6 +7315,12 @@ body:has(.auth-page) {
   z-index: 10;
   cursor: grab;
   user-select: none;
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Ketika buku terbuka, geser ke kanan untuk memberikan ruang pada cover yang terbuka */
+.book-3d-container.book-opened {
+  transform: translateX(50%);
 }
 
 .book-3d-container:active {
@@ -7326,12 +7332,19 @@ body:has(.auth-page) {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transform: rotateX(3deg) rotateY(-8deg);
+  /* rotation variables so container translateX won't be overridden by animation */
+  --rx: 3deg;
+  --ry: -8deg;
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(0);
   transition: transform 0.4s ease;
+  /* floating animation moved to inner .book-3d so container's translateX remains effective */
+  animation: book3dFloat 4s ease-in-out infinite;
 }
 
 .book-3d-container:hover .book-3d {
-  transform: rotateX(5deg) rotateY(-12deg);
+  /* change rotation targets via variables instead of replacing transform */
+  --rx: 5deg;
+  --ry: -12deg;
 }
 
 /* Book Spine */
@@ -7401,16 +7414,23 @@ body:has(.auth-page) {
   left: 0;
   transform-origin: left center;
   transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:
+    transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1),
+    z-index 0s 0.4s; /* Delay z-index change for smoother flip */
   cursor: pointer;
 }
 
 .book-3d-page.flipped {
-  transform: rotateY(-180deg);
+  /* Halaman yang sudah di-flip tetap terlihat di sisi cover */
+  opacity: 1;
+  visibility: visible;
+  /* Rotate 180deg dan sedikit offset untuk efek stacking */
+  transform: rotateY(-180deg) translateZ(calc(var(--flip-order, 0) * 0.5px));
 }
 
 .book-3d-page.active {
-  z-index: 100 !important;
+  z-index: 300 !important;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 /* Hide pages when cover is closed */
@@ -7569,6 +7589,19 @@ body:has(.auth-page) {
   justify-content: center;
 }
 
+/* Halaman yang sudah di-flip akan terlihat menumpuk di sisi cover */
+.book-3d-page.flipped .page-back {
+  box-shadow:
+    inset -3px 0 15px rgba(0, 0, 0, 0.06),
+    -1px 0 5px rgba(0, 0, 0, 0.08);
+}
+
+/* Efek stacking untuk halaman yang sudah di-flip */
+.book-3d-page.flipped {
+  /* Sedikit offset untuk efek stacking halaman */
+  --flip-offset: calc(var(--page-index, 0) * 0.5px);
+}
+
 .page-back-content {
   text-align: center;
   padding: 30px;
@@ -7609,7 +7642,7 @@ body:has(.auth-page) {
     0 8px 25px rgba(26, 86, 219, 0.25),
     0 3px 10px rgba(0, 0, 0, 0.15),
     inset 0 0 30px rgba(255, 255, 255, 0.08);
-  z-index: 200;
+  z-index: 400; /* Tinggi saat tertutup */
   cursor: pointer;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -7617,7 +7650,7 @@ body:has(.auth-page) {
 
 .book-3d-front-cover.opened {
   transform: rotateY(-175deg);
-  z-index: 1;
+  z-index: 100; /* Rendah saat terbuka agar halaman yang di-flip terlihat di atasnya */
 }
 
 /* Efek kilau pada cover */
@@ -7830,15 +7863,11 @@ body:has(.auth-page) {
 @keyframes book3dFloat {
   0%,
   100% {
-    transform: translateY(0);
+    transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(0);
   }
   50% {
-    transform: translateY(-6px);
+    transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(-6px);
   }
-}
-
-.book-3d-container {
-  animation: book3dFloat 4s ease-in-out infinite;
 }
 
 /* Responsive */
@@ -7880,8 +7909,16 @@ body:has(.auth-page) {
     margin: 50px auto 0;
   }
 
+  /* Ketika buku terbuka di mobile, geser ke kanan */
+  .book-3d-container.book-opened {
+    transform: translateX(60px);
+  }
+
   .book-3d {
-    transform: rotateX(2deg) rotateY(-6deg);
+    /* use rotation variables so animation doesn't override container translateX */
+    --rx: 2deg;
+    --ry: -6deg;
+    transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(0);
   }
 
   .page-content-3d {
@@ -7933,6 +7970,11 @@ body:has(.auth-page) {
   .book-3d-container {
     width: 140px;
     height: 185px;
+  }
+
+  /* Ketika buku terbuka di layar kecil, geser ke kanan */
+  .book-3d-container.book-opened {
+    transform: translateX(50px);
   }
 
   .page-content-3d {
