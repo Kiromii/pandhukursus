@@ -66,7 +66,7 @@ const FeatureSection = () => {
 
   return (
     <>
-      {/* Fixed Parallax Background Image - stays in place while scrolling */}
+      {/* Background Parallax Tetap - tetap di tempat saat scrolling */}
       <div
         className={`features-fixed-bg ${isVisible ? 'visible' : ''}`}
         style={{
@@ -76,7 +76,7 @@ const FeatureSection = () => {
 
       <section id="keunggulan" className="features parallax-section" ref={sectionRef}>
         <div className="container">
-          {/* Glassmorphism Content Wrapper */}
+          {/* Pembungkus Konten dengan Efek Glassmorphism */}
           <div className="features-content-wrapper">
             <div className="features-wrapper">
               <div className={`features-content scroll-animate-left ${isVisible ? 'animate-in' : ''}`}>
@@ -84,7 +84,7 @@ const FeatureSection = () => {
                 <h2 className="section-title">Keunggulan Platform Kami</h2>
                 <p className="section-desc">Pandhu dirancang untuk memberikan pengalaman belajar terbaik dengan berbagai fitur unggulan yang mendukung proses pembelajaran Anda.</p>
 
-                {/* stats removed as requested */}
+                {/* Statistik dihapus sesuai permintaan */}
               </div>
 
               <div className="feature-grid">

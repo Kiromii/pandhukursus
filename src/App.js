@@ -10,6 +10,7 @@ import PaymentPage from './pages/PaymentPage';
 import MyCoursesPage from './pages/MyCoursesPage';
 import ProfilePage from './pages/ProfilePage';
 import LearnPage from './pages/LearnPage';
+import PracticePage from './pages/PracticePage';
 import ScrollToTop from './components/ScrollToTop';
 import AIChatbox from './components/AIChatbox';
 
@@ -46,6 +47,7 @@ function App() {
             <Route path="/my-courses" element={<MyCoursesPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/learn/:id" element={<LearnPage />} />
+            <Route path="/practice/:id" element={<PracticePage />} />
           </Routes>
           <ScrollToTop />
           <AIChatbox />

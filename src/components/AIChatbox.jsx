@@ -168,9 +168,9 @@ const AIChatbox = () => {
 
   return (
     <>
-      {/* Chatbox Container */}
+      {/* Kontainer Chatbox */}
       <div className={`ai-chatbox-container ${isOpen ? 'open' : ''}`}>
-        {/* Header */}
+        {/* Header Chatbox */}
         <div className="ai-chatbox-header">
           <div className="ai-chatbox-header-info">
             <div className="ai-chatbox-avatar">
@@ -196,7 +196,7 @@ const AIChatbox = () => {
           </button>
         </div>
 
-        {/* Messages */}
+        {/* Daftar Pesan */}
         <div className="ai-chatbox-messages">
           {messages.map((msg) => (
             <div key={msg.id} className={`ai-message ${msg.type}`}>
@@ -221,7 +221,7 @@ const AIChatbox = () => {
             </div>
           ))}
 
-          {/* Typing indicator */}
+          {/* Indikator sedang mengetik */}
           {isTyping && (
             <div className="ai-message bot">
               <div className="ai-message-avatar">
@@ -242,7 +242,7 @@ const AIChatbox = () => {
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Quick Commands */}
+        {/* Perintah Cepat */}
         <div className="ai-quick-commands">
           <button onClick={() => setInputValue('!kursus tersedia')}>📚 Kursus</button>
           <button onClick={() => setInputValue('!kategori')}>📂 Kategori</button>
@@ -250,7 +250,7 @@ const AIChatbox = () => {
           <button onClick={() => setInputValue('!bantuan')}>❓ Bantuan</button>
         </div>
 
-        {/* Input */}
+        {/* Input Pesan */}
         <div className="ai-chatbox-input">
           <input ref={inputRef} type="text" placeholder="Ketik perintah atau pesan..." value={inputValue} onChange={(e) => setInputValue(e.target.value)} onKeyPress={handleKeyPress} />
           <button className="ai-send-btn" onClick={handleSend} disabled={!inputValue.trim()}>
@@ -261,7 +261,7 @@ const AIChatbox = () => {
         </div>
       </div>
 
-      {/* Floating Button */}
+      {/* Tombol Mengambang */}
       <button className={`ai-chatbox-trigger ${isOpen ? 'hidden' : ''}`} onClick={() => setIsOpen(true)} aria-label="Buka chat AI">
         <div className="ai-trigger-glow"></div>
         <div className="ai-trigger-pulse"></div>

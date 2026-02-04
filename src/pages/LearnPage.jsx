@@ -130,7 +130,7 @@ const LearnPage = () => {
 
   return (
     <div className="learn-page">
-      {/* Premium Header */}
+      {/* Header Halaman - Navigasi dan info kursus */}
       <header className="learn-header">
         <div className="learn-header-left">
           <button className="learn-back-btn" onClick={() => navigate('/my-courses')}>
@@ -163,12 +163,12 @@ const LearnPage = () => {
       </header>
 
       <div className="learn-container">
-        {/* Main Content Area */}
+        {/* Area Konten Utama */}
         <main className={`learn-main ${!isSidebarOpen ? 'full-width' : ''}`}>
-          {/* Video Player Section */}
+          {/* Bagian Pemutar Video */}
           <div className="learn-video-container">
             <div className="learn-video-wrapper">
-              {/* Placeholder video area with gradient */}
+              {/* Placeholder video dengan gradient */}
               <div className="learn-video-placeholder">
                 <div className="video-overlay">
                   <button className="play-button-large" onClick={() => setIsPlaying(!isPlaying)}>
@@ -195,12 +195,12 @@ const LearnPage = () => {
                 />
               </div>
 
-              {/* Video Progress Bar */}
+              {/* Bar Progress Video */}
               <div className="video-progress-bar">
                 <div className="video-progress-fill" style={{ width: `${progress}%` }}></div>
               </div>
 
-              {/* Video Controls */}
+              {/* Kontrol Video */}
               <div className="video-controls">
                 <div className="video-controls-left">
                   <button className="video-control-btn" onClick={() => setIsPlaying(!isPlaying)}>
@@ -261,7 +261,7 @@ const LearnPage = () => {
             </div>
           </div>
 
-          {/* Lesson Info & Navigation */}
+          {/* Info Pelajaran & Navigasi */}
           <div className="learn-lesson-info">
             <div className="lesson-header">
               <div className="lesson-meta">
@@ -300,7 +300,7 @@ const LearnPage = () => {
               </div>
             </div>
 
-            {/* Navigation Buttons */}
+            {/* Tombol Navigasi */}
             <div className="lesson-navigation">
               <button className="nav-lesson-btn prev" onClick={goToPrevLesson} disabled={currentSection === 0 && currentLesson === 0}>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -317,7 +317,7 @@ const LearnPage = () => {
             </div>
           </div>
 
-          {/* Notes Panel */}
+          {/* Panel Catatan */}
           {showNotes && (
             <div className="learn-notes-panel">
               <div className="notes-header">
@@ -332,7 +332,7 @@ const LearnPage = () => {
           )}
         </main>
 
-        {/* Sidebar - Course Content */}
+        {/* Sidebar - Konten Kursus */}
         <aside className={`learn-sidebar ${isSidebarOpen ? 'open' : ''}`}>
           <button className="sidebar-toggle" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

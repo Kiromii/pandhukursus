@@ -48,7 +48,7 @@ const RegisterPage = () => {
 
   return (
     <div className="auth-page">
-      {/* Left Side - Branding */}
+      {/* Sisi Kiri - Branding dan Informasi */}
       <div className="auth-branding">
         <div className="auth-branding-content">
           <Link to="/" className="auth-logo">
@@ -122,12 +122,12 @@ const RegisterPage = () => {
           </div>
         </div>
 
-        {/* Decorative elements */}
+        {/* Elemen dekoratif */}
         <div className="auth-decor decor-1"></div>
         <div className="auth-decor decor-2"></div>
       </div>
 
-      {/* Right Side - Register Form */}
+      {/* Sisi Kanan - Form Registrasi */}
       <div className="auth-form-container">
         <div className="auth-form-wrapper">
           <div className="auth-form-header">

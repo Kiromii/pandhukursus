@@ -38,7 +38,7 @@ const LoginPage = () => {
 
   return (
     <div className="auth-page">
-      {/* Brand */}
+      {/* Sisi Kiri - Branding dan Informasi */}
       <div className="auth-branding">
         <div className="auth-branding-content">
           <Link to="/" className="auth-logo">

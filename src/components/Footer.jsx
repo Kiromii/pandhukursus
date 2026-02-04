@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer id="kontak" className="site-footer-v2" role="contentinfo">
-      {/* Angular/Geometric Top Shape */}
+      {/* Bentuk Sudut/Geometris Atas */}
       <div className="footer-angular-top">
         <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <polygon points="0,100 720,0 1440,100 1440,100 0,100" fill="currentColor" />
@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="footer-main-content">
         <div className="container">
           <div className="footer-grid-v2">
-            {/* Brand Column */}
+            {/* Kolom Brand/Logo */}
             <div className="footer-brand-v2">
               <div className="brand-logo-v2">
                 <img src={`${process.env.PUBLIC_URL}/img/logo/Logofooter.png`} alt="Pandhu" className="brand-logo-v2-img" />
@@ -23,7 +23,7 @@ const Footer = () => {
               <p className="footer-desc-v2">Belajar kapan saja, di mana saja. Dari PAUD hingga profesional, kami hadir untuk mendukung perjalanan belajarmu.</p>
             </div>
 
-            {/* Categories Column */}
+            {/* Kolom Kategori */}
             <div className="footer-col-v2">
               <h4 className="footer-title-v2">KATEGORI</h4>
               <ul className="footer-list-v2">
@@ -48,7 +48,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Column */}
+            {/* Kolom Kontak */}
             <div className="footer-col-v2">
               <h4 className="footer-title-v2">HUBUNGI KAMI</h4>
               <div className="footer-contact-v2">
@@ -78,7 +78,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Social Icons */}
+              {/* Ikon Media Sosial */}
               <div className="social-icons-v2">
                 <a href="https://www.facebook.com/" className="social-icon-v2" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -116,7 +116,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Footer Bottom */}
+      {/* Bagian Bawah Footer */}
       <div className="footer-bottom-v2">
         <div className="container">
           <div className="footer-bottom-content">
