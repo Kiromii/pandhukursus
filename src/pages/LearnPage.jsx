@@ -1,5 +1,5 @@
-import React, { useState, useContext, useRef, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import React, { useState, useContext, useRef } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App';
 import { getCourseById } from '../data/coursesData';
 
@@ -8,6 +8,7 @@ const LearnPage = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const userName = user?.fullName || 'Pelajar';
+  // eslint-disable-next-line no-unused-vars
   const videoRef = useRef(null);
 
   // Get course data
@@ -17,6 +18,7 @@ const LearnPage = () => {
   const [currentLesson, setCurrentLesson] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [progress, setProgress] = useState(0);
   const [completedLessons, setCompletedLessons] = useState([]);
   const [showNotes, setShowNotes] = useState(false);
@@ -65,13 +67,11 @@ const LearnPage = () => {
 
   // Get current lesson data
   const getCurrentLesson = () => {
-    let lessonIndex = 0;
     for (let i = 0; i < curriculum.length; i++) {
       for (let j = 0; j < curriculum[i].lessons.length; j++) {
         if (i === currentSection && j === currentLesson) {
           return curriculum[i].lessons[j];
         }
-        lessonIndex++;
       }
     }
     return curriculum[0].lessons[0];

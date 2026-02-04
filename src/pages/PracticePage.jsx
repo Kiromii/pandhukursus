@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App';
 import { getQuizByCourseId, getModulesByCourseId, getVideosByCourseId } from '../data/quizData';
 
